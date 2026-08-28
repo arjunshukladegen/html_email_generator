@@ -4,26 +4,43 @@ require 'thor'
 include ERB::Util
 
 class MyCLI < Thor
+  
   def self.exit_on_failure?
     true
   end
 
-  @cli_name = "email_tool"
-
+  # Help command
+  @cli_name = "pixelmail"
   def self.banner(command, namespace = nil, subcommand = false)
     "#{@cli_name} #{command.usage}"
   end
 
+  # View command
   desc "view", "Displays information about current directory."
   def view
-    puts "Current Path: #{Dir.pwd}"
+    path = Dir.pwd
+    files = Dir.children(path)
+    csv_count = files.count { |file| file.end_with?(".csv")}
+
+    puts "Current Path: #{path}"
+    puts csv_count == 1 ? "(#{count} '.csv' files found)" : "(#{csv_count} '.csv' files found)"
+    puts "Files:"
+    
+
+    files.each do |file|
+      symbol = file.end_with?(".csv") ? "✔" : "✘"
+      helper = file.end_with?(".csv") ? "(compatible)" : "(not compatible)"
+      puts "  #{symbol} #{file} #{helper}" if ('a'..'z').include?(file[0].downcase)
+    end
   end
 
+  # Convert command
   desc "convert", "Converts a single '.csv' file to an HTML email."
   def convert
     puts "To be added"
   end
 
+  # Batch command
   desc "batch", "Converts a group of similarly named '.csv' files into HTML emails."
   def batch
     puts "To be added"
