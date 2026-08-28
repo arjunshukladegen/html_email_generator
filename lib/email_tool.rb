@@ -35,13 +35,13 @@ class MyCLI < Thor
   end
 
   # Convert command
-  desc "convert", "Converts a single '.csv' file to an HTML email."
+  desc "convert", "Converts a single '.csv' file into HTML."
   def convert
     puts "To be added"
   end
 
   # Batch command
-  desc "batch", "Converts a group of similarly named '.csv' files into HTML emails."
+  desc "batch", "Converts a batch of '.csv' files into HTML."
   def batch
     puts "To be added"
   end
