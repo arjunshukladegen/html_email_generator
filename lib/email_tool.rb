@@ -14,6 +14,11 @@ class MyCLI < Thor
     "#{@cli_name} #{command.usage}"
   end
 
+  desc "view", "Displays information about current directory."
+  def view
+    puts "Current Path: #{Dir.pwd}"
+  end
+
   desc "convert", "Converts a single '.csv' file to an HTML email."
   def convert
     puts "To be added"
