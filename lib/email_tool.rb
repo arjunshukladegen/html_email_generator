@@ -37,7 +37,12 @@ class MyCLI < Thor
   # Convert command
   desc "convert", "Converts a single '.csv' file into HTML."
   def convert
-    puts "To be added"
+    path = Dir.pwd
+    files = Dir.children(path)
+    csv_files = files.select { |file| file if file.end_with?(".csv")}
+
+    puts "Showing all 'csv' files in '#{path}': "
+    puts csv_files
   end
 
   # Batch command
