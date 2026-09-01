@@ -1,6 +1,6 @@
 # HTML Email Generator
 ```
-Interactive Ruby CLI tool for HTML email generation. 
+(Not functional yet) Ruby CLI tool for HTML email generation. 
 
 Made by Jingo Studios in partnership with PixelNamics.
 
